@@ -3,7 +3,6 @@ import AboutSection from '@/components/slides/AboutSection';
 import ExperienceSection from '@/components/slides/ExperienceSection';
 import SkillsSection from '@/components/slides/SkillsSection';
 import ProjectSection from '@/components/slides/ProjectSection';
-import TestimonialSection from '@/components/slides/TestimonialSection';
 import FooterSection from '@/components/slides/FooterSection';
 import ProjectShowcaseTwo from '@/components/slides/ProjectShowcaseTwo';
 
