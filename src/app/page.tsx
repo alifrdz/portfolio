@@ -9,25 +9,37 @@ import ProjectShowcaseTwo from '@/components/slides/ProjectShowcaseTwo';
 export default function Home() {
   return (
     <main className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
-      <section className="min-h-screen w-full relative overflow-hidden snap-start">
+      {/* SECTION HOME */}
+      <section id="home" className="min-h-screen w-full relative overflow-hidden snap-start">
         <HeroSection />
       </section>
-      <section className="min-h-screen w-full relative overflow-hidden snap-start">
+
+      {/* SECTION ABOUT */}
+      <section id="about" className="min-h-screen w-full relative overflow-hidden snap-start">
         <AboutSection />
       </section>
+
+      {/* SECTION EXPERIENCE & SKILLS (Bagian dari pendukung About) */}
       <section className="min-h-screen w-full relative overflow-hidden snap-start">
         <ExperienceSection />
       </section>
+
       <section className="min-h-screen w-full relative overflow-hidden snap-start">
         <SkillsSection />
       </section>
-      <section className="min-h-screen w-full relative overflow-hidden snap-start">
+
+      {/* SECTION PROJECTS */}
+      <section id="projects" className="min-h-screen w-full relative overflow-hidden snap-start">
         <ProjectSection />
       </section>
-       <section className="min-h-screen w-full relative overflow-hidden snap-start">
+
+      {/* PROJECT SHOWCASE TWO */}
+      <section className="min-h-screen w-full relative overflow-hidden snap-start">
         <ProjectShowcaseTwo />
       </section>
-      <section className="min-h-screen w-full relative overflow-hidden snap-start">
+
+      {/* SECTION CONTACT */}
+      <section id="contact" className="min-h-screen w-full relative overflow-hidden snap-start">
         <FooterSection />
       </section>
     </main>

@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -48,7 +49,7 @@ const toolGroups = [
         bg: "#f8f0ff",
       },
     ],
-    items: ["Wordpress", "Ahrefs", "Yoast SEO"],
+    items: ["WordPress", "Ahrefs", "Yoast SEO"],
   },
   {
     category: "Branding & Content Creation",
@@ -93,7 +94,7 @@ const toolGroups = [
         bg: "#f5f5f5",
       },
     ],
-    items: ["Canva", "CapCut", "Tiktok"],
+    items: ["Canva", "CapCut", "TikTok"],
   },
   {
     category: "Social Media & Insights",
@@ -178,7 +179,10 @@ const toolGroups = [
         icon: (
           <svg viewBox="0 0 50 50" className="w-7 h-7">
             <rect width="50" height="50" rx="10" fill="#010101" />
-            <text x="50%" y="55%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold" fontFamily="Arial">TikTok{"\n"}Ads</text>
+            <text x="50%" y="45%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold" fontFamily="Arial">
+               <tspan x="50%" dy="0">TikTok</tspan>
+               <tspan x="50%" dy="10">Ads</tspan>
+            </text>
           </svg>
         ),
         bg: "#f5f5f5",
@@ -266,13 +270,8 @@ function CurvedLineDecoration({ flip = false }: { flip?: boolean }) {
 function ToolIcon({ tool }: { tool: { name: string; icon: React.ReactNode; bg: string } }) {
   return (
     <motion.div
-  whileHover={{
-    y: -8,
-    scale: 1.1,
-    rotate: -1,
-  }}
-  whileTap={{ scale: 0.95 }}
-  transition={{ type: "spring", stiffness: 400, damping: 18 }}
+      whileHover={{ y: -8, scale: 1.1, rotate: -1 }}
+      whileTap={{ scale: 0.95 }}
       transition={{ type: "spring", stiffness: 400, damping: 15 }}
       className="flex flex-col items-center gap-1.5 cursor-pointer group"
       title={tool.name}
@@ -296,7 +295,7 @@ export default function SkillsSection() {
       opacity: 1,
       scale: 1,
       transition: {
-        type: "spring" as const,
+        type: "spring",
         stiffness: 500,
         damping: 20,
         delay: i * 0.08,
@@ -337,7 +336,6 @@ export default function SkillsSection() {
     >
       {/* ── Header ── */}
       <div className="flex flex-col items-center gap-3 mb-8">
-        {/* Curved line decorations */}
         <div className="flex items-center gap-4">
           <CurvedLineDecoration />
           <CurvedLineDecoration flip />
@@ -359,9 +357,8 @@ export default function SkillsSection() {
               key={pill}
               custom={i}
               variants={pillVariants}
-              className="px-5 py-2 rounded-full border border-gray-200 bg-white text-gray-800 font-medium text-sm shadow-sm cursor-default
-hover:border-blue-400 hover:text-blue-600 hover:-translate-y-1 hover:shadow-md
-transition-all duration-300"  >
+              className="px-5 py-2 rounded-full border border-gray-200 bg-white text-gray-800 font-medium text-sm shadow-sm cursor-default hover:border-blue-400 hover:text-blue-600 hover:-translate-y-1 hover:shadow-md transition-all duration-300"
+            >
               {pill}
             </motion.span>
           ))}
@@ -378,8 +375,8 @@ transition-all duration-300"  >
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
-       className="w-full lg:w-1/2 bg-white rounded-3xl p-8 shadow-sm border border-gray-100 flex flex-col
-transition-all duration-300 hover:shadow-xl hover:-translate-y-1" >
+          className="w-full lg:w-1/2 bg-white rounded-3xl p-8 shadow-sm border border-gray-100 flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+        >
           <h3 className="text-4xl md:text-5xl font-extrabold text-[#111] mb-6 tracking-tight">
             Tools
           </h3>
@@ -387,17 +384,14 @@ transition-all duration-300 hover:shadow-xl hover:-translate-y-1" >
           <div className="grid grid-cols-2 gap-6">
             {toolGroups.map((group) => (
               <div key={group.category} className="flex flex-col gap-3">
-                {/* Icon row */}
                 <div className="flex gap-3">
                   {group.tools.map((tool) => (
                     <ToolIcon key={tool.name} tool={tool} />
                   ))}
                 </div>
-                {/* Category label */}
                 <span className="text-[11px] font-semibold text-gray-500 bg-gray-100 rounded-full px-3 py-1 w-fit">
                   {group.category}
                 </span>
-                {/* Item list */}
                 <ul className="flex flex-col gap-1">
                   {group.items.map((item) => (
                     <li key={item} className="flex items-center gap-2 text-sm text-gray-600">
@@ -418,8 +412,8 @@ transition-all duration-300 hover:shadow-xl hover:-translate-y-1" >
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
-        className="w-full lg:w-1/2 bg-white rounded-3xl p-8 shadow-sm border border-gray-100 flex flex-col
-transition-all duration-300 hover:shadow-xl hover:-translate-y-1" >
+          className="w-full lg:w-1/2 bg-white rounded-3xl p-8 shadow-sm border border-gray-100 flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+        >
           <h3 className="text-4xl md:text-5xl font-extrabold text-[#111] mb-6 tracking-tight">
             Certification
           </h3>
@@ -427,18 +421,16 @@ transition-all duration-300 hover:shadow-xl hover:-translate-y-1" >
           <div className="flex flex-col gap-5">
             {certifications.map((cert, i) => (
               <motion.div
-  key={i}
-  custom={i}
-  variants={certVariants}
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true, margin: "-40px" }}
-  className="flex items-start gap-4 group p-2 rounded-xl hover:bg-gray-50 transition-all duration-300"
->
-                {/* Logo */}
+                key={i}
+                custom={i}
+                variants={certVariants}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: "-40px" }}
+                className="flex items-start gap-4 group p-2 rounded-xl hover:bg-gray-50 transition-all duration-300"
+              >
                 <div
-                  className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 shadow-sm font-bold text-sm 
-                  transition-transform duration-300 group-hover:scale-110"
+                  className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 shadow-sm font-bold text-sm transition-transform duration-300 group-hover:scale-110"
                   style={{
                     background: cert.logoBg,
                     color: cert.logoColor,
@@ -448,17 +440,11 @@ transition-all duration-300 hover:shadow-xl hover:-translate-y-1" >
                   {cert.logoText}
                 </div>
 
-                {/* Text */}
                 <div className="flex flex-col">
                   <p className="text-[15px] font-bold text-[#111] leading-snug">
                     {cert.org} – {cert.title}
                   </p>
                   <p className="text-xs text-gray-400 mt-0.5">{cert.date}</p>
-                  {cert.note && (
-                    <p className="text-xs text-blue-600 font-medium mt-1 leading-relaxed">
-                      {cert.note}
-                    </p>
-                  )}
                 </div>
               </motion.div>
             ))}

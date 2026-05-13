@@ -1,22 +1,23 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion"; // 1. Variants dipindah ke atas
+
+// 2. Variabel animasi dipindah ke LUAR fungsi agar tidak error 'outside of module'
+const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.2,
+            ease: "easeOut"
+        }
+    }
+};
 
 export default function AboutSection() {
-    // Stagger Animations for Text
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        show: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.2,
-                ease: "easeOut"
-            }
-        }
-    };
-
-    const itemVariants = {
+    // 3. itemVariants tetap di sini sesuai gaya asli lo
+    const itemVariants: Variants = {
         hidden: { opacity: 0, y: 30 },
         show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
     };
@@ -62,7 +63,6 @@ export default function AboutSection() {
             </div>
 
             {/* Main Content: 2 Columns */}
-            {/* Added mt-20 here so the text doesn't stick to the marquee */}
             <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between px-8 flex-1 py-10 gap-10 z-10 mt-20">
                 
                 {/* Left: Text Description */}
@@ -103,59 +103,22 @@ export default function AboutSection() {
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 1 }}
-                    className="w-full lg:w-1/2 flex justify-center  item-end h-[70vh] lg:h-[82vh] relative mt-10 lg:mt-0"
+                    className="w-full lg:w-1/2 flex justify-center items-end h-[70vh] lg:h-[82vh] relative mt-10 lg:mt-0"
                 >
                     <motion.img 
-    src="/assets/alif-about.png" 
-    alt="Alif - About Me" 
-    className="
-        h-full
-        w-auto
-        object-contain
-        object-bottom
-        scale-110
-        drop-shadow-2xl
-    "
-
-    style={{
-        transformOrigin: "bottom center",
-    }}
-
-    initial={{
-        scale: 0,
-        opacity: 0,
-    }}
-
-    whileInView={{
-        scale: 1,
-        opacity: 1,
-    }}
-
-    animate={{
-        rotate: [0, 2, -2, 2, -1, 1, 0],
-    }}
-
-    transition={{
-        scale: {
-            type: "spring",
-            damping: 10,
-            stiffness: 120,
-            duration: 0.8,
-        },
-
-        opacity: {
-            duration: 0.8,
-        },
-
-        rotate: {
-            repeat: Infinity,
-            repeatDelay: 1,
-            duration: 2.5,
-            ease: "easeInOut",
-        },
-
-    }}
-/>
+                        src="/assets/alif-about.png" 
+                        alt="Alif - About Me" 
+                        className="h-full w-auto object-contain object-bottom scale-110 drop-shadow-2xl"
+                        style={{ transformOrigin: "bottom center" }}
+                        initial={{ scale: 0, opacity: 0 }}
+                        whileInView={{ scale: 1, opacity: 1 }}
+                        animate={{ rotate: [0, 2, -2, 2, -1, 1, 0] }}
+                        transition={{
+                            scale: { type: "spring", damping: 10, stiffness: 120, duration: 0.8 },
+                            opacity: { duration: 0.8 },
+                            rotate: { repeat: Infinity, repeatDelay: 1, duration: 2.5, ease: "easeInOut" },
+                        }}
+                    />
                 </motion.div>
             </div>
         </section>

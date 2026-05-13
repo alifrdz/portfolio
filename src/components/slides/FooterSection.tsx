@@ -5,6 +5,7 @@ import Image from "next/image";
 
 import {
     motion,
+    Variants, // 1. Tambahkan Variants di sini
 } from "framer-motion";
 
 import {
@@ -15,9 +16,9 @@ import {
     MapPin,
 } from "lucide-react";
 
-// ─── ANIMATION VARIANTS ─────────────────────────────────────────────
+// ─── ANIMATION VARIANTS (Diberi Tipe Data : Variants) ──────────────────────────
 
-const containerVariants = {
+const containerVariants: Variants = { // Tambah : Variants
     hidden: {},
     show: {
         transition: {
@@ -26,7 +27,7 @@ const containerVariants = {
     },
 };
 
-const fadeUpVariants = {
+const fadeUpVariants: Variants = { // Tambah : Variants
     hidden: {
         opacity: 0,
         y: 40,
@@ -41,7 +42,7 @@ const fadeUpVariants = {
     },
 };
 
-const slideLeftVariants = {
+const slideLeftVariants: Variants = { // Tambah : Variants
     hidden: {
         opacity: 0,
         x: -40,
@@ -56,7 +57,7 @@ const slideLeftVariants = {
     },
 };
 
-const slideRightVariants = {
+const slideRightVariants: Variants = { // Tambah : Variants
     hidden: {
         opacity: 0,
         x: 40,
@@ -73,7 +74,7 @@ const slideRightVariants = {
     },
 };
 
-const contactItemVariants = {
+const contactItemVariants: Variants = { // Tambah : Variants
     hidden: {
         opacity: 0,
         y: 20,

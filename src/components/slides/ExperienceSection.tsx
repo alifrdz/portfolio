@@ -1,9 +1,24 @@
 "use client";
 
-
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, Variants } from "framer-motion"; // Tambah Variants di sini
 
+// 1. Pindahkan Variants ke LUAR fungsi komponen & kasih tipe data : Variants
+const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.2,
+            ease: "easeOut"
+        }
+    }
+};
+
+const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+};
 
 export default function ExperienceSection() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -13,24 +28,6 @@ export default function ExperienceSection() {
     });
 
     const lineHeight = useTransform(scrollYProgress, [0, 1], [0, 1]);
-
-    
-    // Stagger Animations for Text
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        show: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.2,
-                ease: "easeOut"
-            }
-        }
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 30 },
-        show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
-    };
 
     const experiences = [
         {
@@ -98,15 +95,14 @@ export default function ExperienceSection() {
                     <motion.div variants={itemVariants} className="bg-white rounded-[2rem] p-8 md:p-10 shadow-sm border border-gray-100 flex-1 relative" ref={containerRef}>
                         
                         {/* Timeline Track (Grey) */}
- <div className="absolute left-[62px] md:left-[70px] top-[64px] md:top-[72px] bottom-[120px] md:bottom-[164px] w-1 bg-[#3B82F6] rounded-full z-0 overflow-hidden">
+                        <div className="absolute left-[62px] md:left-[70px] top-[64px] md:top-[72px] bottom-[120px] md:bottom-[164px] w-1 bg-[#3B82F6] rounded-full z-0 overflow-hidden">
+                             {/* Timeline Fill (Blue) */}
+                            <motion.div
+                                className="w-full bg-[#3B82F6] origin-top h-full"
+                                style={{ scaleY: lineHeight }}
+                            />
                         </div>
                         
-                        {/* Timeline Fill (Blue) */}
-                       <motion.div
-  className="absolute left-0 top-0 w-full h-full bg-[#3B82F6] origin-top"
-  style={{ scaleY: lineHeight }}
-/>
-
                         <div className="flex flex-col gap-10 relative z-10">
                             {experiences.map((exp, index) => (
                                 <div key={index} className="flex gap-6">
