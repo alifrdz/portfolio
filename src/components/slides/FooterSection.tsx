@@ -37,7 +37,7 @@ const fadeUpVariants: Variants = { // Tambah : Variants
         y: 0,
         transition: {
             duration: 0.7,
-            ease: [0.16, 1, 0.3, 1],
+            ease: [0.16, 1, 0.3, 1] as any,
         },
     },
 };
@@ -52,7 +52,7 @@ const slideLeftVariants: Variants = { // Tambah : Variants
         x: 0,
         transition: {
             duration: 0.7,
-            ease: [0.16, 1, 0.3, 1],
+            ease: [0.16, 1, 0.3, 1] as any,
         },
     },
 };
@@ -69,7 +69,7 @@ const slideRightVariants: Variants = { // Tambah : Variants
         scale: 1,
         transition: {
             duration: 0.8,
-            ease: [0.16, 1, 0.3, 1],
+            ease: [0.16, 1, 0.3, 1] as any,
         },
     },
 };
@@ -84,7 +84,7 @@ const contactItemVariants: Variants = { // Tambah : Variants
         y: 0,
         transition: {
             duration: 0.5,
-            ease: [0.16, 1, 0.3, 1],
+            ease: [0.16, 1, 0.3, 1] as any,
             delay: i * 0.08,
         },
     }),
@@ -317,7 +317,7 @@ const FooterSection = () => {
                 viewport={{ once: true }}
                 transition={{
                     duration: 0.7,
-                    ease: [0.16, 1, 0.3, 1],
+                    ease: [0.16, 1, 0.3, 1] as any,
                 }}
                 className="w-full relative z-10"
             >

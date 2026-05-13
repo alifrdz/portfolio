@@ -272,7 +272,7 @@ function ToolIcon({ tool }: { tool: { name: string; icon: React.ReactNode; bg: s
     <motion.div
       whileHover={{ y: -8, scale: 1.1, rotate: -1 }}
       whileTap={{ scale: 0.95 }}
-      transition={{ type: "spring", stiffness: 400, damping: 15 }}
+      transition={{ type: "spring" as const, stiffness: 400, damping: 15 }}
       className="flex flex-col items-center gap-1.5 cursor-pointer group"
       title={tool.name}
     >
@@ -295,7 +295,7 @@ export default function SkillsSection() {
       opacity: 1,
       scale: 1,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 500,
         damping: 20,
         delay: i * 0.08,
@@ -310,7 +310,7 @@ export default function SkillsSection() {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.16, 1, 0.3, 1],
+        ease: [0.16, 1, 0.3, 1] as any,
         delay: i * 0.15,
       },
     }),
@@ -323,7 +323,7 @@ export default function SkillsSection() {
       x: 0,
       transition: {
         duration: 0.5,
-        ease: [0.16, 1, 0.3, 1],
+        ease: [0.16, 1, 0.3, 1] as any,
         delay: 0.3 + i * 0.1,
       },
     }),

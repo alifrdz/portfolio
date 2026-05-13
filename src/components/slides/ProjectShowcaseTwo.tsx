@@ -15,7 +15,7 @@ const fadeUp = {
         y: 0,
         transition: {
             duration: 0.7,
-            ease: [0.16, 1, 0.3, 1],
+            ease: [0.16, 1, 0.3, 1] as any,
             delay,
         },
     }),
@@ -28,7 +28,7 @@ const fadeLeft = {
         x: 0,
         transition: {
             duration: 0.7,
-            ease: [0.16, 1, 0.3, 1],
+            ease: [0.16, 1, 0.3, 1] as any,
             delay,
         },
     }),
@@ -41,7 +41,7 @@ const fadeRight = {
         x: 0,
         transition: {
             duration: 0.7,
-            ease: [0.16, 1, 0.3, 1],
+            ease: [0.16, 1, 0.3, 1] as any,
             delay,
         },
     }),
@@ -54,7 +54,7 @@ const scaleIn = {
         scale: 1,
         transition: {
             duration: 0.55,
-            ease: [0.16, 1, 0.3, 1],
+            ease: [0.16, 1, 0.3, 1] as any,
             delay,
         },
     }),
@@ -145,7 +145,7 @@ export default function ProjectShowcaseTwo() {
                 >
                     <motion.div
                         whileHover={{ scale: 1.03 }}
-                        transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                        transition={{ type: "spring" as const, stiffness: 300, damping: 15 }}
                         className="bg-[#3B82F6] text-white flex items-center px-6 md:px-10 py-4 md:py-6 rounded-bl-[1.5rem] md:rounded-bl-[2.5rem] shadow-lg"
                     >
                         <span className="font-black text-3xl md:text-5xl">02</span>

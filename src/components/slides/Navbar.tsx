@@ -12,7 +12,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             transition={{
                 duration: 0.7,
-                ease: [0.16, 1, 0.3, 1],
+                ease: [0.16, 1, 0.3, 1] as any,
             }}
             className="
                 fixed
@@ -43,7 +43,7 @@ export default function Navbar() {
                             scale: 0.96,
                         }}
                         transition={{
-                            type: "spring",
+                            type: "spring" as const,
                             stiffness: 500,
                             damping: 20,
                         }}

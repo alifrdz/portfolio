@@ -1,25 +1,32 @@
 "use client";
 
 import Image from "next/image";
-import { motion, Variants } from "framer-motion"; // 1. Variants dipindah ke atas
+import { motion, Variants } from "framer-motion";
 
-// 2. Variabel animasi dipindah ke LUAR fungsi agar tidak error 'outside of module'
+// 1. Buat MotionImage agar Image Next.js bisa di-animasikan langsung
+const MotionImage = motion(Image);
+
+// 2. Variabel di LUAR (Sesuai struktur lo) + Fix Ease Type
 const containerVariants: Variants = {
     hidden: { opacity: 0 },
     show: {
         opacity: 1,
         transition: {
             staggerChildren: 0.2,
-            ease: "easeOut"
+            ease: "easeOut" as const // FIX: as const wajib buat TypeScript
         }
     }
 };
 
 export default function AboutSection() {
-    // 3. itemVariants tetap di sini sesuai gaya asli lo
+    // 3. Variabel di DALAM (Sesuai gaya asli lo)
     const itemVariants: Variants = {
         hidden: { opacity: 0, y: 30 },
-        show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+        show: { 
+            opacity: 1, 
+            y: 0, 
+            transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as any } 
+        }
     };
 
     return (
@@ -31,34 +38,17 @@ export default function AboutSection() {
                     animate={{ x: ["0%", "-50%"] }}
                     transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
                 >
-                    <div className="flex gap-8 items-center shrink-0 pl-8">
-                        <span>UX DESIGN</span>
-                        <span className="text-[#3B82F6]">✦</span>
-                        <span>BRAND</span>
-                        <span className="text-[#3B82F6]">✦</span>
-                        <span>MARKETING</span>
-                        <span className="text-[#3B82F6]">✦</span>
-                        <span>UX DESIGN</span>
-                        <span className="text-[#3B82F6]">✦</span>
-                        <span>BRAND</span>
-                        <span className="text-[#3B82F6]">✦</span>
-                        <span>MARKETING</span>
-                        <span className="text-[#3B82F6]">✦</span>
-                    </div>
-                    <div className="flex gap-8 items-center shrink-0 pl-8">
-                        <span>UX DESIGN</span>
-                        <span className="text-[#3B82F6]">✦</span>
-                        <span>BRAND</span>
-                        <span className="text-[#3B82F6]">✦</span>
-                        <span>MARKETING</span>
-                        <span className="text-[#3B82F6]">✦</span>
-                        <span>UX DESIGN</span>
-                        <span className="text-[#3B82F6]">✦</span>
-                        <span>BRAND</span>
-                        <span className="text-[#3B82F6]">✦</span>
-                        <span>MARKETING</span>
-                        <span className="text-[#3B82F6]">✦</span>
-                    </div>
+                    {/* Double content for seamless loop */}
+                    {[1, 2].map((i) => (
+                        <div key={i} className="flex gap-8 items-center shrink-0 pl-8">
+                            <span>UX DESIGN</span>
+                            <span className="text-[#3B82F6]">✦</span>
+                            <span>BRAND</span>
+                            <span className="text-[#3B82F6]">✦</span>
+                            <span>MARKETING</span>
+                            <span className="text-[#3B82F6]">✦</span>
+                        </div>
+                    ))}
                 </motion.div>
             </div>
 
@@ -86,10 +76,7 @@ export default function AboutSection() {
                         <p>
                             <span className="font-bold text-gray-800 border-b-2 border-[#3B82F6]">I have</span> developed core skills in{" "}
                             <span className="font-semibold text-gray-800">business development, marketing strategy,</span> and{" "}
-                            <span className="font-semibold text-gray-800">data analysis</span>. I am also experienced in managing social media and brand campaigns through various academic and personal projects.
-                        </p>
-                        <p>
-                            I have explored various marketing frameworks through academic projects and case studies, focusing on social media strategy, brand development, and ads performance.
+                            <span className="font-semibold text-gray-800">data analysis</span>. I am also experienced in managing social media and brand campaigns.
                         </p>
                         <p>
                             I am committed to delivering real results through marketing strategies, brand campaigns, and optimizing performance with a data-driven mindset.
@@ -105,16 +92,19 @@ export default function AboutSection() {
                     transition={{ duration: 1 }}
                     className="w-full lg:w-1/2 flex justify-center items-end h-[70vh] lg:h-[82vh] relative mt-10 lg:mt-0"
                 >
-                    <motion.img 
+                    {/* Menggunakan MotionImage (Optimized + Animated) */}
+                    <MotionImage 
                         src="/assets/alif-about.png" 
                         alt="Alif - About Me" 
+                        width={600} 
+                        height={800}
                         className="h-full w-auto object-contain object-bottom scale-110 drop-shadow-2xl"
                         style={{ transformOrigin: "bottom center" }}
                         initial={{ scale: 0, opacity: 0 }}
                         whileInView={{ scale: 1, opacity: 1 }}
                         animate={{ rotate: [0, 2, -2, 2, -1, 1, 0] }}
                         transition={{
-                            scale: { type: "spring", damping: 10, stiffness: 120, duration: 0.8 },
+                            scale: { type: "spring" as const, damping: 10, stiffness: 120, duration: 0.8 },
                             opacity: { duration: 0.8 },
                             rotate: { repeat: Infinity, repeatDelay: 1, duration: 2.5, ease: "easeInOut" },
                         }}

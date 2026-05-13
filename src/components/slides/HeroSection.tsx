@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link"; // Tambahan wajib buat navigasi
+import Link from "next/link"; 
 import { Sparkles, Rss, Rocket } from "lucide-react";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion"; // Tambah Variants
 
 const GREETINGS = ["Hello!", "Halo!", "Hola!", "Bonjour!", "Konnichiwa!"];
 
@@ -18,20 +18,21 @@ export default function Slide1() {
         return () => clearInterval(interval);
     }, []);
 
-    const containerVariants = {
+    // FIX: Tambahkan tipe Variants dan 'as const' pada ease
+    const containerVariants: Variants = {
         hidden: { opacity: 0 },
         show: {
             opacity: 1,
             transition: {
                 staggerChildren: 0.2,
-                ease: "easeOut"
+                ease: "easeOut" as const // Kunci perbaikan build error
             }
         }
     };
 
-    const itemVariants = {
+    const itemVariants: Variants = {
         hidden: { opacity: 0, y: 30 },
-        show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+        show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as any } }
     };
 
     return (
@@ -51,7 +52,7 @@ export default function Slide1() {
                                 initial={{ opacity: 0, y: 15 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -15 }}
-                                transition={{ duration: 0.3, ease: "easeOut" }}
+                                transition={{ duration: 0.3, ease: "easeOut" as const }}
                                 className="absolute text-center w-full"
                             >
                                 {GREETINGS[greetingIndex]}
@@ -111,7 +112,6 @@ export default function Slide1() {
                         <div className="group relative w-full h-full flex justify-center items-end">
                             <div className="absolute inset-x-0 bottom-0 top-[10%] bg-[#3B82F6] rounded-full z-0 mx-auto w-full h-full transition-all duration-500 ease-out group-hover:scale-105 group-hover:brightness-110" />
 
-                            {/* FIXED IMAGE WITH NEXT/IMAGE */}
                             <div className="relative z-10 w-full h-full translate-y-6 scale-110 transition-all duration-500 ease-out group-hover:scale-[1.16]">
                                 <Image
                                     src="/assets/alif.png"
@@ -123,7 +123,7 @@ export default function Slide1() {
                             </div>
                         </div>
 
-                        {/* Badges - Tetap sama, hanya merapikan motion props */}
+                        {/* Badges */}
                         <Badge icon={<Rss size={16} className="text-gray-300" />} text="Marketing" pos="top-[20%] -left-[10%] md:-left-[15%]" />
                         <Badge icon={<Sparkles size={16} className="text-yellow-400" fill="currentColor" />} text="Brand" pos="bottom-[28%] -left-[5%] md:-left-[8%]" delay={0.2} />
                         <Badge icon={<Rocket size={16} className="text-orange-500" fill="currentColor" />} text="Ads" pos="top-[35%] -right-[5%] md:-right-[8%]" delay={0.5} />
@@ -174,7 +174,7 @@ export default function Slide1() {
     );
 }
 
-// Helper Component biar kode lo nggak kepanjangan
+// Helper Component - Tetap dipertahankan
 function Badge({ icon, text, pos, delay = 0 }: { icon: any, text: string, pos: string, delay?: number }) {
     return (
         <div className={`absolute ${pos} z-10`}>
