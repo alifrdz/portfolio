@@ -1,9 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform, Variants } from "framer-motion"; // Tambah Variants di sini
+import { motion, useScroll, useTransform, Variants } from "framer-motion";
 
-// 1. Pindahkan Variants ke LUAR fungsi komponen & kasih tipe data : Variants
 const containerVariants: Variants = {
     hidden: { opacity: 0 },
     show: {
@@ -35,28 +34,28 @@ export default function ExperienceSection() {
             role: "Digital Marketing & Content Contributor",
             date: "April 2026",
             description: "Supported digital marketing campaigns through content, influencer partnerships, and paid ads. Helped increase brand awareness and sales through engagement optimization.",
-            logoText: "Pijar.",
+            logo: "/assets/pijarkita.png",
         },
         {
             company: "PT. KOKEK Consulting",
             role: "Web Content & Data Administrator Intern",
             date: "Aug 2025 - Oct 2025",
             description: "Managed structured data for the tourism platform Destinasiku. Conducted data validation and quality checks to maintain accurate and efficient content management.",
-            logoText: "KOKEK",
+            logo: "/assets/kokek.png",
         },
         {
             company: "PT. Poetra Teknologi Indonesia",
             role: "Hardware Support Intern",
             date: "Sep 2023 - Okt 2023",
             description: "Performed hardware troubleshooting for client devices. Installed and configured operating systems, drivers, and supporting software for daily operational needs",
-            logoText: "POETRA",
+            logo: "/assets/poetra.png",
         },
         {
             company: "Black Broadcast",
             role: "Creative Staff",
             date: "Jul 2024 - Dec 2025",
             description: "Managed media assets and content production for school broadcasting activities. Assisted event coverage and creative content execution",
-            logoText: "BROADCAST",
+            logo: "/assets/broadcast.png",
         }
     ];
 
@@ -66,13 +65,13 @@ export default function ExperienceSection() {
             badge: "Vocational High School",
             date: "July 2024 - Apr 2026",
             major: "Software Engineering",
-            logoText: "SMKN 10",
+            logo: "/assets/smkn10.png",
         },
         {
             school: "Rakamin Academy - Scholarship Digital Marketing Bootcamp",
             date: "Jan 2026 - May 2026",
             description: "Received full 100% scholarship to learn topic A-Z Digital Marketing for ~4 months.\nLed Project & Won 1st Final Project : @pijarkita_\nAchieved 331%+ target performance, 783%+ Add to Cart growth, and 151%+ Sales target attainment.",
-            logoText: "</>",
+            logo: "/assets/rakamin.png",
         }
     ];
 
@@ -95,7 +94,7 @@ export default function ExperienceSection() {
                     <motion.div variants={itemVariants} className="bg-white rounded-[2rem] p-8 md:p-10 shadow-sm border border-gray-100 flex-1 relative" ref={containerRef}>
                         
                         {/* Timeline Track (Grey) */}
-                        <div className="absolute left-[62px] md:left-[70px] top-[64px] md:top-[72px] bottom-[120px] md:bottom-[164px] w-1 bg-[#3B82F6] rounded-full z-0 overflow-hidden">
+                        <div className="absolute left-[72px] md:left-[80px] top-[64px] md:top-[72px] bottom-[120px] md:bottom-[164px] w-1 bg-[#3B82F6] rounded-full z-0 overflow-hidden">
                              {/* Timeline Fill (Blue) */}
                             <motion.div
                                 className="w-full bg-[#3B82F6] origin-top h-full"
@@ -106,10 +105,18 @@ export default function ExperienceSection() {
                         <div className="flex flex-col gap-10 relative z-10">
                             {experiences.map((exp, index) => (
                                 <div key={index} className="flex gap-6">
-                                    {/* Logo Box */}
-                                    <div className="w-16 h-16 bg-white border border-gray-100 rounded-2xl shadow-sm flex items-center justify-center shrink-0 z-10">
-                                        <span className="text-[10px] font-bold text-gray-800 tracking-wider text-center px-1">{exp.logoText}</span>
-                                    </div>
+                                    {/* Logo Box Experience with Hover */}
+                                    <motion.div 
+                                        whileHover={{ y: -8, scale: 1.1, rotate: -1 }}
+                                        transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                                        className="w-20 h-20 bg-white border border-gray-100 rounded-2xl shadow-sm flex items-center justify-center shrink-0 z-10 overflow-hidden cursor-pointer"
+                                    >
+                                        <img 
+                                            src={exp.logo} 
+                                            alt={exp.company} 
+                                            className="w-full h-full object-contain p-2"
+                                        />
+                                    </motion.div>
 
                                     {/* Content */}
                                     <div className="flex flex-col pt-1">
@@ -141,10 +148,18 @@ export default function ExperienceSection() {
                     <motion.div variants={itemVariants} className="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-gray-100">
                         <div className="flex flex-col gap-10">
                             {/* SMK */}
-                            <div className="flex gap-6">
-                                <div className="w-16 h-16 bg-white border border-gray-100 rounded-2xl shadow-sm flex items-center justify-center shrink-0">
-                                    <span className="text-[10px] font-bold text-green-600 text-center px-1">{education[0].logoText}</span>
-                                </div>
+                            <div className="flex gap-6 items-start">
+                                <motion.div 
+                                    whileHover={{ y: -8, scale: 1.1, rotate: -1 }}
+                                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                                    className="w-20 h-20 shrink-0 flex items-center justify-start cursor-pointer"
+                                >
+                                    <img 
+                                        src={education[0].logo} 
+                                        alt={education[0].school} 
+                                        className="w-full h-full object-contain object-left"
+                                    />
+                                </motion.div>
                                 <div className="flex flex-col pt-1">
                                     <h3 className="text-xl font-bold text-[#111] leading-tight">{education[0].school}</h3>
                                     <div className="mt-2">
@@ -161,9 +176,17 @@ export default function ExperienceSection() {
 
                             {/* Rakamin */}
                             <div className="flex gap-6">
-                                <div className="w-16 h-16 bg-[#008F9B] border border-gray-100 rounded-2xl shadow-sm flex items-center justify-center shrink-0">
-                                    <span className="text-xl font-bold text-white tracking-widest">{education[1].logoText}</span>
-                                </div>
+                                <motion.div 
+                                    whileHover={{ y: -8, scale: 1.1, rotate: -1 }}
+                                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                                    className="w-20 h-20 shrink-0 flex items-center justify-center cursor-pointer"
+                                >
+                                    <img 
+                                        src={education[1].logo} 
+                                        alt={education[1].school} 
+                                        className="w-full h-full object-contain p-2"
+                                    />
+                                </motion.div>
                                 <div className="flex flex-col pt-1">
                                     <h3 className="text-xl font-bold text-[#111] leading-tight md:pr-10">Rakamin Academy</h3>
                                     <div className="mt-2">

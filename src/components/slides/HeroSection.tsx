@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link"; 
-import { Sparkles, Rss, Rocket } from "lucide-react";
+import { Sparkles, Rss, Rocket, FileDown } from "lucide-react";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence, Variants } from "framer-motion"; // Tambah Variants
+import { motion, AnimatePresence, Variants } from "framer-motion";
 
 const GREETINGS = ["Hello!", "Halo!", "Hola!", "Bonjour!", "Konnichiwa!"];
 
@@ -18,14 +18,13 @@ export default function Slide1() {
         return () => clearInterval(interval);
     }, []);
 
-    // FIX: Tambahkan tipe Variants dan 'as const' pada ease
     const containerVariants: Variants = {
         hidden: { opacity: 0 },
         show: {
             opacity: 1,
             transition: {
                 staggerChildren: 0.2,
-                ease: "easeOut" as const // Kunci perbaikan build error
+                ease: "easeOut" as const
             }
         }
     };
@@ -58,7 +57,6 @@ export default function Slide1() {
                                 {GREETINGS[greetingIndex]}
                             </motion.span>
                         </AnimatePresence>
-                        {/* Spacer to maintain bubble size */}
                         <span className="opacity-0 px-2">Konnichiwa!</span>
                     </div>
                 </div>
@@ -88,7 +86,7 @@ export default function Slide1() {
                         </motion.span>
                     </motion.h1>
                     <motion.h2 layout variants={itemVariants} className="text-6xl md:text-[5.5rem] leading-[1.1] font-bold text-black tracking-[-0.03em] mt-1">
-                        A Brand & Marketing Specialist
+                        Digital Marketing
                     </motion.h2>
                 </motion.div>
 
@@ -170,11 +168,48 @@ export default function Slide1() {
                     </motion.div>
                 </motion.div>
             </div>
+
+            {/* --- TOMBOL CV POJOK KANAN BAWAH (Animasi diperhalus) --- */}
+            <motion.a
+                href="/assets/cv-alif.pdf"
+                download="CV_Alif_Firdaus.pdf"
+                initial={{ opacity: 0, x: 40, scale: 0.9 }}
+                animate={{ 
+                    opacity: 1, 
+                    x: 0, 
+                    scale: 1,
+                    y: [0, -10, 0] // Efek floating halus mengikuti tema badge lo
+                }}
+                transition={{ 
+                    opacity: { duration: 0.8, delay: 1.2 },
+                    x: { type: "spring", stiffness: 100, damping: 20, delay: 1.2 },
+                    scale: { duration: 0.5, delay: 1.2 },
+                    y: { 
+                        duration: 4, 
+                        repeat: Infinity, 
+                        ease: "easeInOut", 
+                        delay: 2 // Mulai floating setelah dia muncul sepenuhnya
+                    }
+                }}
+                whileHover={{ 
+                    scale: 1.08, 
+                    transition: { type: "spring", stiffness: 400, damping: 10 } 
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="fixed bottom-10 right-10 z-50 hidden md:flex items-center gap-3 bg-white border border-gray-100 px-5 py-3 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] hover:shadow-[0_15px_50px_rgba(0,0,0,0.12)] transition-all cursor-pointer group"
+            >
+                <div className="bg-[#3B82F6] p-2 rounded-xl text-white group-hover:bg-blue-600 transition-colors">
+                    <FileDown size={18} />
+                </div>
+                <div className="flex flex-col items-start leading-none">
+                    <span className="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1">Download</span>
+                    <span className="text-sm font-bold text-black font-sans">Resume PDF</span>
+                </div>
+            </motion.a>
         </section>
     );
 }
 
-// Helper Component - Tetap dipertahankan
 function Badge({ icon, text, pos, delay = 0 }: { icon: any, text: string, pos: string, delay?: number }) {
     return (
         <div className={`absolute ${pos} z-10`}>

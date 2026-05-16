@@ -223,7 +223,6 @@ export default function ProjectShowcaseTwo() {
                             className="w-full max-w-[600px] aspect-[16/10] bg-white rounded-3xl border border-gray-200 shadow-xl relative overflow-hidden mb-12"
                         >
                             <div className="absolute top-4 left-0 w-full text-center z-10">
-                                <span className="text-xl md:text-2xl font-black text-gray-800">Content Ads</span>
                             </div>
                             <Image 
                                 src="/assets/rykuza-ads.png" 

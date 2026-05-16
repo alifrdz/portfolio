@@ -225,23 +225,33 @@ export default function ProjectSection() {
                             </div>
                         </motion.div>
 
-                        {/* CENTER MOCKUP */}
-                        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={0.35} className="lg:col-span-4 flex justify-center order-first lg:order-none">
-                            <motion.div
-                                animate={{ y: [0, -10, 0] }}
-                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                whileHover={{ scale: 1.02 }}
-                                className="w-[280px] md:w-[310px] h-[580px] md:h-[630px] bg-black rounded-[3.5rem] border-[12px] border-[#1a1a1a] shadow-2xl relative overflow-hidden"
-                            >
-                                <Image 
-                                    src="/assets/pijarkita-mockup.png" 
-                                    alt="Mockup" 
-                                    fill 
-                                    className="object-cover"
-                                    priority
-                                />
-                            </motion.div>
-                        </motion.div>
+                       {/* CENTER MOCKUP */}
+<motion.div 
+    variants={fadeUp} 
+    initial="hidden" 
+    whileInView="show" 
+    viewport={{ once: true }} 
+    custom={0.35} 
+    className="lg:col-span-4 flex justify-center order-first lg:order-none"
+>
+    <motion.div
+        animate={{ y: [0, -15, 0] }} 
+        transition={{ 
+            duration: 4, 
+            repeat: Infinity, 
+            ease: "easeInOut"
+        }}
+        /* WAJIB: Kasih ukuran lagi biar gambarnya tahu harus selebar apa */
+        className="w-[280px] md:w-[350px] h-auto relative flex items-center justify-center"
+    >
+        <img 
+            src="/assets/pijarkita-mockup.png" 
+            alt="Hero" 
+            /* scale-125 adalah standar Tailwind, p-0 biar maksimal gede */
+            className="w-full h-full object-contain scale-125 p-0"
+        />
+    </motion.div>
+</motion.div>
 
                         {/* RIGHT DESCRIPTION */}
                         <motion.div variants={fadeLeft} initial="hidden" whileInView="show" viewport={{ once: true }} custom={0.4} className="lg:col-span-4 flex flex-col pt-0 lg:pt-10">

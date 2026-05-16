@@ -21,32 +21,20 @@ const toolGroups = [
     tools: [
       {
         name: "WordPress",
-        icon: (
-          <svg viewBox="0 0 24 24" className="w-7 h-7" fill="#21759b">
-            <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1.05 14.47L8.27 9.64H9.9l1.35 4.14 1.35-4.14h1.63l-2.33 6.83zm5.8 0l-2.33-6.83h1.63l1.35 4.14 1.35-4.14H20.3l-2.55 6.83z" />
-          </svg>
-        ),
-        bg: "#f0f4ff",
+        icon: "/assets/wordpress.png",
+        bg: "#f5f5f5",
       },
       {
         name: "Ahrefs",
-        icon: (
-          <svg viewBox="0 0 50 50" className="w-7 h-7">
-            <rect width="50" height="50" rx="10" fill="#FF7043" />
-            <text x="50%" y="55%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="14" fontWeight="bold" fontFamily="Arial">Ah</text>
-          </svg>
-        ),
-        bg: "#fff3ef",
+        icon: "/assets/ahrefs.png",
+        bg: "#f5f5f5",
+        customScale: 1.0,
       },
       {
         name: "Yoast SEO",
-        icon: (
-          <svg viewBox="0 0 50 50" className="w-7 h-7">
-            <rect width="50" height="50" rx="10" fill="#9b59b6" />
-            <text x="50%" y="55%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="14" fontWeight="bold" fontFamily="Arial">Yo</text>
-          </svg>
-        ),
-        bg: "#f8f0ff",
+        icon: "/assets/yoast.png",
+        bg: "#f5f5f5",
+        customScale: 1.0,
       },
     ],
     items: ["WordPress", "Ahrefs", "Yoast SEO"],
@@ -56,41 +44,18 @@ const toolGroups = [
     tools: [
       {
         name: "Canva",
-        icon: (
-          <svg viewBox="0 0 50 50" className="w-7 h-7">
-            <rect width="50" height="50" rx="10" fill="url(#canvaGrad)" />
-            <defs>
-              <linearGradient id="canvaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#00C4CC" />
-                <stop offset="100%" stopColor="#7B2FFF" />
-              </linearGradient>
-            </defs>
-            <text x="50%" y="55%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold" fontFamily="Arial">C</text>
-          </svg>
-        ),
-        bg: "#f0fffe",
+        icon: "/assets/canva.png",
+        bg: "#f5f5f5",
+        customScale: 1.0,
       },
       {
         name: "CapCut",
-        icon: (
-          <svg viewBox="0 0 50 50" className="w-7 h-7">
-            <rect width="50" height="50" rx="10" fill="#111" />
-            <text x="50%" y="55%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="12" fontWeight="bold" fontFamily="Arial">CC</text>
-          </svg>
-        ),
+        icon: "/assets/capcut.png",
         bg: "#f5f5f5",
       },
       {
         name: "TikTok",
-        icon: (
-          <svg viewBox="0 0 50 50" className="w-7 h-7">
-            <rect width="50" height="50" rx="10" fill="#010101" />
-            <path
-              d="M34 18.5c-2.3-.5-4-2.5-4-4.8V12h-4v17c0 1.7-1.3 3-3 3s-3-1.3-3-3 1.3-3 3-3c.3 0 .6 0 .9.1V22c-.3 0-.6-.1-.9-.1-3.9 0-7 3.1-7 7s3.1 7 7 7 7-3.1 7-7V23c1.5.9 3.2 1.4 5 1.4v-4c-.7 0-1.4-.2-2-.4z"
-              fill="white"
-            />
-          </svg>
-        ),
+        icon: "/assets/tiktok.png",
         bg: "#f5f5f5",
       },
     ],
@@ -101,47 +66,21 @@ const toolGroups = [
     tools: [
       {
         name: "Instagram",
-        icon: (
-          <svg viewBox="0 0 50 50" className="w-7 h-7">
-            <defs>
-              <radialGradient id="igGrad" cx="30%" cy="107%" r="150%">
-                <stop offset="0%" stopColor="#fdf497" />
-                <stop offset="5%" stopColor="#fdf497" />
-                <stop offset="45%" stopColor="#fd5949" />
-                <stop offset="60%" stopColor="#d6249f" />
-                <stop offset="90%" stopColor="#285AEB" />
-              </radialGradient>
-            </defs>
-            <rect width="50" height="50" rx="12" fill="url(#igGrad)" />
-            <rect x="13" y="13" width="24" height="24" rx="6" fill="none" stroke="white" strokeWidth="2.5" />
-            <circle cx="25" cy="25" r="7" fill="none" stroke="white" strokeWidth="2.5" />
-            <circle cx="36" cy="14" r="2" fill="white" />
-          </svg>
-        ),
-        bg: "#fff0f8",
+        icon: "/assets/instagram.png",
+        bg: "#f5f5f5",
+        customScale: 1.0,
       },
       {
         name: "Google Trends",
-        icon: (
-          <svg viewBox="0 0 50 50" className="w-7 h-7">
-            <rect width="50" height="50" rx="10" fill="#fff" />
-            <polyline points="8,38 18,22 26,30 34,16 44,28" fill="none" stroke="#4285F4" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
-            <circle cx="44" cy="28" r="3" fill="#EA4335" />
-          </svg>
-        ),
-        bg: "#f0f8ff",
+        icon: "/assets/google-trends.png",
+        bg: "#f5f5f5",
+        customScale: 1.0,
       },
       {
         name: "Google Analytics",
-        icon: (
-          <svg viewBox="0 0 50 50" className="w-7 h-7">
-            <rect width="50" height="50" rx="10" fill="#fff" />
-            <rect x="10" y="28" width="8" height="14" rx="4" fill="#F9AB00" />
-            <rect x="21" y="18" width="8" height="24" rx="4" fill="#E37400" />
-            <rect x="32" y="8" width="8" height="34" rx="4" fill="#1A73E8" />
-          </svg>
-        ),
-        bg: "#fffdf0",
+        icon: "/assets/google-analytics.png",
+        bg: "#f5f5f5",
+        customScale: 1.0,
       },
     ],
     items: ["Instagram", "Google Trends", "Google Analytics"],
@@ -151,41 +90,19 @@ const toolGroups = [
     tools: [
       {
         name: "Meta Ads",
-        icon: (
-          <svg viewBox="0 0 50 50" className="w-7 h-7">
-            <rect width="50" height="50" rx="10" fill="#fff" />
-            <path
-              d="M25 12C18.373 12 13 17.373 13 24c0 6.627 5.373 12 12 12s12-5.373 12-12c0-6.627-5.373-12-12-12zm-3 16.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5zm6 0c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-              fill="#0866FF"
-            />
-          </svg>
-        ),
-        bg: "#f0f4ff",
+        icon: "/assets/meta-ads.png",
+        bg: "#f5f5f5",
       },
       {
         name: "Google Ads",
-        icon: (
-          <svg viewBox="0 0 50 50" className="w-7 h-7">
-            <rect width="50" height="50" rx="10" fill="#fff" />
-            <path d="M11 36l12-20 7 12-4 8H11z" fill="#FBBC04" />
-            <path d="M23 16l7 12H37l-7-12H23z" fill="#4285F4" />
-            <circle cx="37" cy="36" r="6" fill="#34A853" />
-          </svg>
-        ),
-        bg: "#f0fff4",
+        icon: "/assets/google-ads.png",
+        bg: "#f5f5f5",
       },
       {
-        name: "TikTok Ads",
-        icon: (
-          <svg viewBox="0 0 50 50" className="w-7 h-7">
-            <rect width="50" height="50" rx="10" fill="#010101" />
-            <text x="50%" y="45%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold" fontFamily="Arial">
-               <tspan x="50%" dy="0">TikTok</tspan>
-               <tspan x="50%" dy="10">Ads</tspan>
-            </text>
-          </svg>
-        ),
+        name: "Google Search Console",
+        icon: "/assets/google-search-console.png",
         bg: "#f5f5f5",
+        customScale: 1.0,
       },
     ],
     items: ["Meta Ads", "Google Ads", "TikTok Ads"],
@@ -197,44 +114,35 @@ const certifications = [
     org: "Rakamin Academy",
     title: "Scholarship Digital Marketing Bootcamp",
     date: "Jan 2026 – May 2026",
-    logoBg: "#008F9B",
-    logoText: "</>",
-    logoColor: "white",
+    logo: "/assets/rakamin.png",
   },
   {
     org: "Rakamin Academy",
     title: "Advanced Social Media Marketing",
     date: "Apr 2026",
-    logoBg: "#008F9B",
-    logoText: "</>",
-    logoColor: "white",
+    logo: "/assets/rakamin.png",
   },
   {
     org: "Google",
     title: "Ads Search Certificate",
     date: "Feb 2026 – Feb 2027",
-    logoBg: "#fff",
-    logoText: "G",
-    logoColor: "#4285F4",
-    logoBorder: "#e5e7eb",
+    logo: "/assets/google.png",
   },
   {
     org: "Google",
     title: "Ads Display Certificate",
     date: "Feb 2026 – Feb 2027",
-    logoBg: "#fff",
-    logoText: "G",
-    logoColor: "#EA4335",
-    logoBorder: "#e5e7eb",
+    logo: "/assets/google.png",
   },
+
+  /*
   {
     org: "Coursera",
     title: "Meta Social Media Marketing Certificate",
     date: "Jan 2022 – Apr 2022",
-    logoBg: "#0056D2",
-    logoText: "C",
-    logoColor: "white",
+    logo: "/assets/coursera.png",
   },
+  */
 ];
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
@@ -267,7 +175,8 @@ function CurvedLineDecoration({ flip = false }: { flip?: boolean }) {
   );
 }
 
-function ToolIcon({ tool }: { tool: { name: string; icon: React.ReactNode; bg: string } }) {
+// 1. Update Tipe Data biar nerima customScale (optional)
+function ToolIcon({ tool }: { tool: { name: string; icon: string; bg: string; customScale?: number } }) {
   return (
     <motion.div
       whileHover={{ y: -8, scale: 1.1, rotate: -1 }}
@@ -277,10 +186,21 @@ function ToolIcon({ tool }: { tool: { name: string; icon: React.ReactNode; bg: s
       title={tool.name}
     >
       <div
-        className="w-12 h-12 rounded-2xl flex items-center justify-center shadow-sm border border-white/60"
+        className="w-12 h-12 rounded-2xl flex items-center justify-center shadow-sm border border-white/60 overflow-hidden" 
         style={{ background: tool.bg }}
       >
-        {tool.icon}
+        <img 
+          src={tool.icon} 
+          alt={tool.name} 
+          // 2. Classname tetep standar w-full h-full p-2
+          className="w-full h-full object-contain p-2" 
+          // 3. INI KUNCINYA: Pake Inline Style buat nembak 'transform scale'
+          style={
+            tool.customScale 
+              ? { transform: `scale(${tool.customScale})`, padding: 0 } // Kalau ada customScale, p-2 di-override jadi p-0
+              : {} // Kalau ga ada, kosongan aja
+          }
+        />
       </div>
     </motion.div>
   );
@@ -429,15 +349,19 @@ export default function SkillsSection() {
                 viewport={{ once: true, margin: "-40px" }}
                 className="flex items-start gap-4 group p-2 rounded-xl hover:bg-gray-50 transition-all duration-300"
               >
+                {/* LOGIKA KONDISIONAL UNTUK RAKAMIN ACADEMY */}
                 <div
-                  className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 shadow-sm font-bold text-sm transition-transform duration-300 group-hover:scale-110"
-                  style={{
-                    background: cert.logoBg,
-                    color: cert.logoColor,
-                    border: cert.logoBorder ? `1px solid ${cert.logoBorder}` : "none",
-                  }}
+                  className={`w-11 h-11 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110 ${
+                    cert.org === "Rakamin Academy" 
+                    ? "bg-transparent shadow-none" 
+                    : "bg-white border border-gray-100 rounded-xl shadow-sm overflow-hidden"
+                  }`}
                 >
-                  {cert.logoText}
+                  <img 
+                    src={cert.logo} 
+                    alt={cert.org} 
+                    className={`w-full h-full object-contain ${cert.org === "Rakamin Academy" ? "p-0" : "p-1.5"}`} 
+                  />
                 </div>
 
                 <div className="flex flex-col">
