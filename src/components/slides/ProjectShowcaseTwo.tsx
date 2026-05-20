@@ -1,8 +1,10 @@
 "use client";
 
-import Image from "next/image"; // FIX: Import Image untuk aset asli nanti
+import Image from "next/image";
+import Link from "next/link"; // ← Tambah import Link
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
+import { ArrowRight } from "lucide-react"; // ← Tambah import icon
 
 // ─────────────────────────────────────────────
 // ANIMATION VARIANTS
@@ -80,7 +82,7 @@ const NumberCounter = ({
         if (isInView) {
             let start = 0;
             const end = target;
-            const duration = 2000; // FIX: Durasi tetap 2 detik biar mulus
+            const duration = 2000;
             const frameRate = 1000 / 60;
             const totalFrames = duration / frameRate;
             const increment = end / totalFrames;
@@ -159,7 +161,7 @@ export default function ProjectShowcaseTwo() {
 
                 {/* GRID */}
                 <div className="grid lg:grid-cols-12 gap-10 md:gap-16 items-start mt-20 md:mt-24">
-                    
+
                     {/* LEFT COLUMN */}
                     <motion.div
                         variants={fadeLeft}
@@ -208,7 +210,7 @@ export default function ProjectShowcaseTwo() {
                         custom={0.3}
                         className="lg:col-span-7 flex flex-col items-center"
                     >
-                        {/* MOCKUP - FIXED with Image Component */}
+                        {/* MOCKUP */}
                         <motion.div
                             variants={scaleIn}
                             initial="hidden"
@@ -222,12 +224,10 @@ export default function ProjectShowcaseTwo() {
                             whileHover={{ scale: 1.01 }}
                             className="w-full max-w-[600px] aspect-[16/10] bg-white rounded-3xl border border-gray-200 shadow-xl relative overflow-hidden mb-12"
                         >
-                            <div className="absolute top-4 left-0 w-full text-center z-10">
-                            </div>
-                            <Image 
-                                src="/assets/rykuza-ads.png" 
-                                alt="Content Ads Rykuza" 
-                                fill 
+                            <Image
+                                src="/assets/rykuza-ads.png"
+                                alt="Content Ads Rykuza"
+                                fill
                                 className="object-cover"
                             />
                         </motion.div>
@@ -276,6 +276,42 @@ export default function ProjectShowcaseTwo() {
                     </motion.div>
                 </div>
             </motion.div>
+
+            {/* ─────────────────────────────────────────────
+                SEE ALL PROJECTS BUTTON
+                Ditambahkan di sini — setelah card Rykuza,
+                sebelum section Contact
+            ───────────────────────────────────────────── */}
+            <motion.div
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                custom={0.2}
+                className="flex flex-col items-center mt-16 md:mt-20 gap-4"
+            >
+                <p className="text-gray-400 text-sm font-medium tracking-wide">
+                    Explore more work — practice projects, SEO audits, KOL strategy & more
+                </p>
+
+                <Link href="/projects">
+                    <motion.button
+                        whileHover={{ scale: 1.03, y: -2 }}
+                        whileTap={{ scale: 0.97 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                        className="group flex items-center gap-3 bg-[#3B82F6] text-white px-8 py-4 rounded-full text-sm font-bold shadow-lg hover:shadow-xl transition-shadow duration-300"
+                    >
+                        See All My Projects
+                        <motion.span
+                            animate={{ x: [0, 4, 0] }}
+                            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                        >
+                            <ArrowRight size={16} />
+                        </motion.span>
+                    </motion.button>
+                </Link>
+            </motion.div>
+
         </section>
     );
 }
