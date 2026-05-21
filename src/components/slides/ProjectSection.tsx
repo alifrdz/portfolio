@@ -267,10 +267,10 @@ export default function ProjectSection() {
                                 <motion.div variants={fadeUp} custom={0.2}>
                                     <h5 className="text-xl font-bold text-black mb-3">My Scope</h5>
                                     <ul className="text-black text-[15px] font-bold space-y-1 list-disc list-inside">
-                                        <li>Digital Marketing & Funnel Strategy</li>
-                                        <li>KOL Management & Media Relations</li>
                                         <li>Social Media Content Specialist</li>
-                                        <li>Meta Ads & Shopee Ads</li>
+                                        <li>Collaborated on KOL Coordination</li>
+                                        <li>Collaborated on Meta Ads & Shopee Ads</li>
+                                        <li>Contributed to Funnel Strategy</li>
                                     </ul>
                                 </motion.div>
 
@@ -279,6 +279,7 @@ export default function ProjectSection() {
                                     <div className="text-gray-800 text-[15px] leading-relaxed font-medium space-y-4">
                                         <p>Implemented <span className="font-bold text-black">3H content pillars</span> and optimized <span className="font-bold text-black">funnels</span>.</p>
                                         <p>Executed <span className="font-bold text-black">Micro KOL partnerships</span> to expand organic reach.</p>
+                                         <p>Executed <span className="font-bold text-black">Micro KOL partnerships</span> to expand organic reach.</p>
                                     </div>
                                 </motion.div>
                             </div>

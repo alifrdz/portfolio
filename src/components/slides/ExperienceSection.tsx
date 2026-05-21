@@ -31,9 +31,9 @@ export default function ExperienceSection() {
     const experiences = [
         {
             company: "PijarKita",
-            role: "Digital Marketing & Content Contributor",
-            date: "April 2026",
-            description: "Supported digital marketing campaigns through content, influencer partnerships, and paid ads. Helped increase brand awareness and sales through engagement optimization.",
+            role: "Content Specialist - Bootcamp Final Project",
+            date: "April 2026 · 1 month",
+            description: "Handled content strategy and social media execution for an MSME brand specializing in custom book stamps collaborating with team on KOL coordination and Meta Ads.",
             logo: "/assets/pijarkita.png",
         },
         {
@@ -51,11 +51,11 @@ export default function ExperienceSection() {
             logo: "/assets/poetra.png",
         },
         {
-            company: "Black Broadcast",
-            role: "Creative Staff",
-            date: "Jul 2024 - Dec 2025",
-            description: "Managed media assets and content production for school broadcasting activities. Assisted event coverage and creative content execution",
-            logo: "/assets/broadcast.png",
+           company: "Black Broadcast",
+role: "Creative Team - Extracurricular",
+date: "Jul 2024 - Dec 2025",
+description: "Handled media asset management and content production for school broadcasting extracurricular covering school events and creative content execution.",
+logo: "/assets/broadcast.png",
         }
     ];
 
@@ -63,15 +63,15 @@ export default function ExperienceSection() {
         {
             school: "SMK NEGERI 10 SURABAYA",
             badge: "Vocational High School",
-            date: "July 2024 - Apr 2026",
+            date: "June 2023 - June 2026",
             major: "Software Engineering",
             logo: "/assets/smkn10.png",
         },
         {
             school: "Rakamin Academy - Scholarship Digital Marketing Bootcamp",
             date: "Jan 2026 - May 2026",
-            description: "Received full 100% scholarship to learn topic A-Z Digital Marketing for ~4 months.\nLed Project & Won 1st Final Project : @pijarkita_\nAchieved 331%+ target performance, 783%+ Add to Cart growth, and 151%+ Sales target attainment.",
-            logo: "/assets/rakamin.png",
+             description: "Received full scholarship covering 5 months of \nA-Z Digital Marketing.\nWon 1st place Final Project led social media content for @pijarkita_ collaborating with team on KOL coordination and Meta Ads.",
+              logo: "/assets/rakamin.png",
         }
     ];
 
@@ -191,7 +191,7 @@ export default function ExperienceSection() {
                                     <h3 className="text-xl font-bold text-[#111] leading-tight md:pr-10">Rakamin Academy</h3>
                                     <div className="mt-2">
                                         <span className="bg-[#008F9B] text-white text-xs font-semibold px-3 py-1 rounded-full">
-                                            Marketing Bootcamp
+                                            Digital Marketing Bootcamp
                                         </span>
                                     </div>
                                     <p className="text-sm text-gray-400 mt-2 mb-3">{education[1].date}</p>

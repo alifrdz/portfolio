@@ -105,7 +105,7 @@ const toolGroups = [
         customScale: 1.0,
       },
     ],
-    items: ["Meta Ads", "Google Ads", "TikTok Ads"],
+    items: ["Meta Ads", "Google Ads", "Google Search Console"],
   },
 ];
 
@@ -113,7 +113,7 @@ const certifications = [
   {
     org: "Rakamin Academy",
     title: "Scholarship Digital Marketing Bootcamp",
-    date: "Jan 2026 – May 2026",
+    date: "May 2026",
     logo: "/assets/rakamin.png",
   },
   {

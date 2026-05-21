@@ -40,23 +40,23 @@ export default function AboutSection() {
             >
                 {/* Loop 2 kali, tapi isi teks di dalamnya diperbanyak biar lebih lebar dari layar monitor */}
                 {[1, 2].map((i) => (
-                    <div key={i} className="flex gap-8 items-center shrink-0 pr-8">
-                        <span>UX DESIGN</span><span className="text-[#3B82F6]">✦</span>
-                        <span>BRAND</span><span className="text-[#3B82F6]">✦</span>
-                        <span>MARKETING</span><span className="text-[#3B82F6]">✦</span>
-                        
-                        <span>UX DESIGN</span><span className="text-[#3B82F6]">✦</span>
-                        <span>BRAND</span><span className="text-[#3B82F6]">✦</span>
-                        <span>MARKETING</span><span className="text-[#3B82F6]">✦</span>
+                   <div key={i} className="flex gap-8 items-center shrink-0 pr-8">
+    <span>CONTENT</span><span className="text-[#3B82F6]">✦</span>
+    <span>BRAND</span><span className="text-[#3B82F6]">✦</span>
+    <span>MARKETING</span><span className="text-[#3B82F6]">✦</span>
 
-                        <span>UX DESIGN</span><span className="text-[#3B82F6]">✦</span>
-                        <span>BRAND</span><span className="text-[#3B82F6]">✦</span>
-                        <span>MARKETING</span><span className="text-[#3B82F6]">✦</span>
+    <span>SEO</span><span className="text-[#3B82F6]">✦</span>
+    <span>SOCIAL MEDIA</span><span className="text-[#3B82F6]">✦</span>
+    <span>PAID ADS</span><span className="text-[#3B82F6]">✦</span>
 
-                        <span>UX DESIGN</span><span className="text-[#3B82F6]">✦</span>
-                        <span>BRAND</span><span className="text-[#3B82F6]">✦</span>
-                        <span>MARKETING</span><span className="text-[#3B82F6]">✦</span>
-                    </div>
+    <span>CONTENT</span><span className="text-[#3B82F6]">✦</span>
+    <span>BRAND</span><span className="text-[#3B82F6]">✦</span>
+    <span>MARKETING</span><span className="text-[#3B82F6]">✦</span>
+
+    <span>SEO</span><span className="text-[#3B82F6]">✦</span>
+    <span>SOCIAL MEDIA</span><span className="text-[#3B82F6]">✦</span>
+    <span>PAID ADS</span><span className="text-[#3B82F6]">✦</span>
+</div>
                 ))}
             </motion.div>
         </div>
@@ -72,25 +72,32 @@ export default function AboutSection() {
                 viewport={{ once: true, margin: "-100px" }}
                 className="w-full lg:w-1/2 text-left z-10 flex flex-col justify-center"
             >
-                <motion.h2 variants={itemVariants} className="text-6xl md:text-[5.5rem] leading-[1.1] font-bold text-[#111] mb-8 tracking-tight">
-                    About Me
-                </motion.h2>
-                <motion.div variants={itemVariants} className="space-y-6 text-gray-600 text-base md:text-[1.05rem] leading-relaxed">
-                    <p>
-                        Call me Alif, a fresh graduate with a passion for building{" "}
-                        <span className="font-semibold text-gray-800">business and marketing strategies</span>. I focus on{" "}
-                        <span className="font-semibold text-gray-800">growth marketing</span>{" "}
-                        and various brand activities to drive better business results.
-                    </p>
-                    <p>
-                        <span className="font-bold text-gray-800 border-b-2 border-[#3B82F6]">I have</span> developed core skills in{" "}
-                        <span className="font-semibold text-gray-800">business development, marketing strategy,</span> and{" "}
-                        <span className="font-semibold text-gray-800">data analysis</span>. I am also experienced in managing social media and brand campaigns.
-                    </p>
-                    <p>
-                        I am committed to delivering real results through marketing strategies, brand campaigns, and optimizing performance with a data-driven mindset.
-                    </p>
-                </motion.div>
+               <motion.h2 variants={itemVariants} className="text-6xl md:text-[5.5rem] leading-[1.1] font-bold text-[#111] mb-8 tracking-tight">
+    About Me
+</motion.h2>
+<motion.div variants={itemVariants} className="space-y-6 text-gray-600 text-base md:text-[1.05rem] leading-relaxed">
+    <p>
+        Call me Alif a fresh graduate with a genuine curiosity for{" "}
+        <span className="font-semibold text-gray-800">digital marketing</span>{" "}
+        and how brands connect with people through{" "}
+        <span className="font-semibold text-gray-800">content, strategy, and data</span>.
+    </p>
+    <p>
+        I sharpened my skills through{" "}
+        <span className="font-semibold text-gray-800">Rakamin's Digital Marketing Bootcamp</span>{" "}
+        (full scholarship), where I led a real campaign for an MSME brand handling{" "}
+        <span className="font-semibold text-gray-800">social media strategy, KOL management,</span> and{" "}
+        <span className="font-semibold text-gray-800">Meta Ads</span> and our team{" "}
+        <span className="font-bold text-gray-800 border-b-2 border-[#3B82F6]">won 1st place</span>{" "}
+        in the final project.
+    </p>
+    <p>
+        I'm early in my career, but I take it seriously showing up with a{" "}
+        <span className="font-semibold text-gray-800">learner's mindset</span>,
+        strong work ethic, and a focus on{" "}
+        <span className="font-semibold text-gray-800">real results</span>, not just activity.
+    </p>
+</motion.div>
             </motion.div>
 
             {/* Right: Character Image */}

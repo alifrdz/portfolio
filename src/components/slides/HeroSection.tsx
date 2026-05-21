@@ -86,7 +86,7 @@ export default function Slide1() {
                         </motion.span>
                     </motion.h1>
                     <motion.h2 layout variants={itemVariants} className="text-6xl md:text-[5.5rem] leading-[1.1] font-bold text-black tracking-[-0.03em] mt-1">
-                        Digital Marketing
+                        Digital Marketer
                     </motion.h2>
                 </motion.div>
 
@@ -99,11 +99,13 @@ export default function Slide1() {
                 >
                     <motion.div layout variants={itemVariants} className="md:w-1/4 text-left z-10 mb-10 md:mb-0">
                         <div className="text-gray-400 text-3xl font-serif leading-none mb-2">&quot;</div>
-                        <p className="text-gray-500 text-sm leading-relaxed max-w-[250px]">
-                            Crafting <span className="text-black font-semibold">high performance</span> digital
-                            campaigns through <span className="text-black font-semibold">rigorous testing</span>,{" "}
-                            <span className="text-black font-semibold">SEO</span>, and <span className="text-black font-semibold">data-backed insights</span>.
-                        </p>
+                       <p className="text-gray-500 text-sm leading-relaxed max-w-[250px]">
+    Fresh graduate with{" "}
+    <span className="text-black font-semibold">real campaign results</span>{" "}
+ I help brands grow through{" "}
+    <span className="text-black font-semibold">content strategy, paid ads, and social media</span>{" "}
+    that actually convert
+</p>
                     </motion.div>
 
                     <motion.div layout variants={itemVariants} className="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px] flex justify-center items-end mt-10 md:mt-0">
@@ -161,10 +163,12 @@ export default function Slide1() {
                     </motion.div>
 
                     <motion.div layout variants={itemVariants} className="md:w-1/4 text-center md:text-right z-10 mt-16 md:mt-0 flex flex-col items-center md:items-end">
-                        <h3 className="text-black font-bold text-sm tracking-wider mb-2 uppercase">Growth Focused</h3>
-                        <p className="text-gray-500 text-xs leading-relaxed max-w-[200px]">
-                            Optimizing digital growth for maximum conversion and ROI
-                        </p>
+                       ```tsx
+<h3 className="text-black font-bold text-sm tracking-wider mb-2 uppercase">Top Project</h3>
+<p className="text-gray-500 text-s leading-relaxed max-w-[300px]">
+    #1 Final Project - Rakamin Digital Marketing Bootcamp 2026
+</p>
+```
                     </motion.div>
                 </motion.div>
             </div>
